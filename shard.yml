@@ -1,0 +1,24 @@
+name: mvi
+version: 0.1.0
+
+authors:
+  - Pim Snel <post@pimsnel.com>
+
+targets:
+  mvi:
+    main: src/mvi.cr
+
+crystal: 1.2.2
+
+license: MIT
+
+dependencies:
+
+  clim:
+    github: at-grandpa/clim
+
+  markd:
+    github: icyleaf/markd
+
+  webview:
+    github: naqvis/webview

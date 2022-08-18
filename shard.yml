@@ -20,5 +20,8 @@ dependencies:
   markd:
     github: icyleaf/markd
 
+  common_marker:
+    github: mamantoha/crystal-cmark-gfm
+
   webview:
     github: naqvis/webview

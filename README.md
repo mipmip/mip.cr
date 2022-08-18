@@ -2,12 +2,34 @@
 
 Mvi is a simple markdown viewer.
 
+![](./markdown.png)
+
 ## Installation
 
 TODO: Write installation instructions here
 
+## TODO
+
+- build in webserver, e.g. https://github.com/sdogruyol/fast-http-server/blob/master/src/fast-http-server.cr
+
 ## Usage
 
+```
+  MVI. A simple markdown viewer.
+
+  Usage:
+
+    mvi [options] [FILE]
+
+  Options:
+
+    --help                           Show this help.
+    --version                        Show version.
+
+  Arguments:
+
+    01. file      Path to markfown file. [type:String] [required]
+```
 
 
 ## Development
@@ -20,7 +42,7 @@ make build
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/mvi/fork>)
+1. Fork it (<https://github.com/mipmip/mvi/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -28,4 +50,4 @@ make build
 
 ## Contributors
 
-- [Pim Snel](https://github.com/your-github-user) - creator and maintainer
+- [Pim Snel](https://github.com/mipmip) - creator and maintainer

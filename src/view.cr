@@ -1,23 +1,20 @@
+require "common_marker"
 module View
 
-  def view(html)
+  def view(text)
 
-    html = Markd.to_html(html)
-    html0 = <<-HTML
-        data:text/html,<!DOCTYPE html><html lang="en-US">
-        <head>
-        <title>Hello,World!</title>
-        </head>
-        <body>
-              #{html}
-        </body>
-        </html>
-      HTML
+    extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
+    options = ["unsafe"]
+    md = CommonMarker.new(text, options: options, extensions: extensions)
+    html = md.to_html
+    p html
 
-      wv = Webview.window(640, 480, Webview::SizeHints::NONE, "Hello WebView", html0)
-      wv.run
-      wv.destroy
+    html0 = {{ read_file "#{__DIR__}/../asset/template.html" }}
+    html1 = "data:text/html,"+html0.sub("\#{BODY}", html)
 
+    wv = Webview.window(640, 480, Webview::SizeHints::NONE, "Hello WebView", html1)
+    wv.run
+    wv.destroy
 
   end
 

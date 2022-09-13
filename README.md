@@ -1,14 +1,16 @@
 # mvi
 
+
 Mvi is a simple markdown viewer.
 
 ![](./markdown.png)
 
 ## Installation
 
-TODO: Write installation instructions here
+- no releases yet. You should compile it yourself
 
-## TODO
+
+## Features
 
 - build in webserver, e.g. https://github.com/sdogruyol/fast-http-server/blob/master/src/fast-http-server.cr
 
@@ -34,7 +36,7 @@ TODO: Write installation instructions here
 
 ## Development
 
-```
+```bash
 shards install
 make build
 ./mvi

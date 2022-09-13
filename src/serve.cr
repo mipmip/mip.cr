@@ -5,7 +5,7 @@ class FastHttpServer < HTTP::StaticFileHandler
   property port
 
   def initialize(@publicdir = "./", @directory_listing = true)
-    @port = 3000
+    @port = 9391
 
     super
   end

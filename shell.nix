@@ -7,8 +7,10 @@ stdenv.mkDerivation {
 nativeBuildInputs = [
   pkg-config
   cmake
+  fswatch
 ];
 buildInputs = [
+  fswatch
   openssl
   crystal
   shards

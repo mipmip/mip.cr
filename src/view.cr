@@ -1,7 +1,7 @@
 module View
 
-  def view(text)
-    wv = Webview.window(640, 480, Webview::SizeHints::NONE, "Hello WebView", "http://localhost:3000/.temp.html")
+  def view(filename)
+    wv = Webview.window(640, 480, Webview::SizeHints::NONE, "MVI - "+filename, "http://localhost:9391/.temp.html")
     wv.run
     wv.destroy
   end

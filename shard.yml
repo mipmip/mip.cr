@@ -25,3 +25,12 @@ dependencies:
 
   webview:
     github: naqvis/webview
+
+    #  logger:
+    #github: crystal-lang/logger.cr
+
+  inotify:
+    github: petoem/inotify.cr
+    version: 1.0.1
+  fswatch:
+    github: bcardiff/crystal-fswatch

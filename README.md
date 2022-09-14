@@ -1,18 +1,25 @@
-# mvi
+# Mvi
 
-
-Mvi is a simple markdown viewer.
+Mvi is a simple markdown viewer. Mvi uses a webview window to render the
+markdown. I wrote to this preview my markdown files which I write in vim.
 
 ![](./markdown.png)
 
 ## Installation
 
-- no releases yet. You should compile it yourself
-
+- no releases yet. You should compile it yourself.
 
 ## Features
 
-- build in webserver, e.g. https://github.com/sdogruyol/fast-http-server/blob/master/src/fast-http-server.cr
+- built-in webserver
+- preview images
+
+## Todo
+
+- autoreload
+- respond to signals
+- don't crash at reloat
+- quit webview should quit application
 
 ## Usage
 
@@ -31,6 +38,10 @@ Mvi is a simple markdown viewer.
   Arguments:
 
     01. file      Path to markfown file. [type:String] [required]
+
+  Shortcuts:
+
+    CTRL-r        Reload document
 ```
 
 

@@ -119,6 +119,18 @@ p:last-child { margin-bottom: 0; }
     hljs.initHighlightingOnLoad();
   </script>
   -->
+
+
+  <script>
+document.addEventListener("keydown", keyDownTextField, false);
+
+    function keyDownTextField(e) {
+          if(e.keyCode==82 && e.ctrlKey) {
+                reload("hallo")
+              }
+        }
+  </script>
+
 </body>
 </html>
 

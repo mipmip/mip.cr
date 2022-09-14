@@ -14,19 +14,23 @@ module Mvi
   class Markdown
 
     def self.gen_temp_html(filepath)
-      content = File.read(filepath)
-      dir = File.dirname(filepath)
+      begin
+        content = File.read(filepath)
+        dir = File.dirname(filepath)
 
-      extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
-      options = ["unsafe"]
+        extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
+        options = ["unsafe"]
 
-      md = CommonMarker.new(content, options: options, extensions: extensions)
-      html = md.to_html
-      html0 = {{ read_file "#{__DIR__}/../asset/theme1/template.html" }}
-      html1 = html0.sub("\#{BODY}", html)
+        md = CommonMarker.new(content, options: options, extensions: extensions)
+        html = md.to_html
+        html0 = {{ read_file "#{__DIR__}/../asset/theme1/template.html" }}
+        html1 = html0.sub("\#{BODY}", html)
 
-      File.open(dir+"/.temp.html", "w") do |file|
-        file.print html1
+        File.open(dir+"/.temp.html", "w") do |file|
+          file.print html1
+        end
+      rescue
+        p "could not open"
       end
     end
   end
@@ -40,6 +44,7 @@ module Mvi
       argument "file", type: String, desc: "Path to markfown file.", required: true
 
       run do |opts, args|
+
         print "#{args.file} !\n"
         if File.exists?(args.file)
 

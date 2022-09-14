@@ -20,17 +20,16 @@ dependencies:
   markd:
     github: icyleaf/markd
 
+  front_matter:
+    github: chris-huxtable/front_matter.cr
+    #github: mipmip/front_matter.cr
+    #branch: master
+
   common_marker:
     github: mamantoha/crystal-cmark-gfm
 
   webview:
     github: naqvis/webview
 
-    #  logger:
-    #github: crystal-lang/logger.cr
-
-  inotify:
-    github: petoem/inotify.cr
-    version: 1.0.1
   fswatch:
     github: bcardiff/crystal-fswatch

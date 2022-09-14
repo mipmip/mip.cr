@@ -2,10 +2,12 @@ require "webview"
 require "markd"
 require "clim"
 require "fswatch"
+require "common_marker"
+require "front_matter"
 
 require "./view"
 require "./serve"
-require "common_marker"
+
 include View
 
 module Mvi
@@ -15,13 +17,22 @@ module Mvi
 
     def self.gen_temp_html(filepath)
       begin
-        content = File.read(filepath)
+
+        in_yaml_string = ""
+        in_body_string = ""
+
+        FrontMatter.open(filepath, false) do |front_matter, content_io|
+          in_yaml_string = front_matter
+          in_body_string = content_io.gets_to_end
+        end
+
+        #content = File.read(filepath)
         dir = File.dirname(filepath)
 
         extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
         options = ["unsafe"]
 
-        md = CommonMarker.new(content, options: options, extensions: extensions)
+        md = CommonMarker.new(in_body_string, options: options, extensions: extensions)
         html = md.to_html
         html0 = {{ read_file "#{__DIR__}/../asset/theme1/template.html" }}
         html1 = html0.sub("\#{BODY}", html)

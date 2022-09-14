@@ -8,17 +8,13 @@ shards:
     git: https://github.com/mamantoha/crystal-cmark-gfm.git
     version: 0.6.0
 
+  front_matter:
+    git: https://github.com/chris-huxtable/front_matter.cr.git
+    version: 0.1.1
+
   fswatch:
     git: https://github.com/bcardiff/crystal-fswatch.git
     version: 0.1.0+git.commit.04aca8703e22fb0ed3d7a39316a49bc0e30eefba
-
-  inotify:
-    git: https://github.com/petoem/inotify.cr.git
-    version: 1.0.1
-
-  logger:
-    git: https://github.com/crystal-lang/logger.cr.git
-    version: 0.1.0
 
   markd:
     git: https://github.com/icyleaf/markd.git

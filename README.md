@@ -13,6 +13,7 @@ markdown. I wrote to this preview my markdown files which I write in vim.
 
 - built-in webserver
 - preview images
+- show/hide frontmatter
 
 ## Todo
 
@@ -20,6 +21,9 @@ markdown. I wrote to this preview my markdown files which I write in vim.
 - respond to signals
 - don't crash at reloat
 - quit webview should quit application
+- refactor code
+- release workflow
+- configure port
 
 ## Usage
 

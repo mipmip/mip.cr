@@ -16,35 +16,36 @@ module Mvi
   class Markdown
 
     def self.gen_temp_html(filepath)
+      in_body_string = ""
       begin
-
-        in_yaml_string = ""
-        in_body_string = ""
-
         FrontMatter.open(filepath, false) do |front_matter, content_io|
-          in_yaml_string = front_matter
           in_body_string = content_io.gets_to_end
         end
+      rescue e
+        in_body_string = File.read(filepath)
+      end
 
-        #content = File.read(filepath)
-        dir = File.dirname(filepath)
+      dir = File.dirname(filepath)
 
-        extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
-        options = ["unsafe"]
+      extensions = ["table", "strikethrough", "autolink", "tagfilter", "tasklist"]
+      options = ["unsafe"]
 
-        md = CommonMarker.new(in_body_string, options: options, extensions: extensions)
-        html = md.to_html
-        html0 = {{ read_file "#{__DIR__}/../asset/theme1/template.html" }}
-        html1 = html0.sub("\#{BODY}", html)
+      md = CommonMarker.new(in_body_string, options: options, extensions: extensions)
+      html = md.to_html
+      html0 = {{ read_file "#{__DIR__}/../asset/theme1/template.html" }}
+      html1 = html0.sub("\#{BODY}", html)
 
-        File.open(dir+"/.temp.html", "w") do |file|
-          file.print html1
-        end
-      rescue
-        p "could not open"
+      File.open(dir+"/.temp.html", "w") do |file|
+        file.print html1
       end
     end
+
+    def killserver()
+
+    end
   end
+
+
 
   class Cli < Clim
 
@@ -80,6 +81,9 @@ module Mvi
 
           Thread.new do
             view(filename)
+            #UGLY METHOD TO KILL SERVER
+            GC.free(Pointer(Void).new(server.object_id))
+            p server
           end
 
           server.listen

@@ -45,11 +45,7 @@ module Mip
       end
     end
 
-    def self.cleanup(filepath, verbose)
-
-      if verbose
-        p "CLEANUP"
-      end
+    def self.cleanup(filepath)
       dir = File.dirname(filepath)
       File.delete(dir+"/.temp.html") if File.exists?(dir+"/.temp.html")
       File.delete(dir+"/.temp.html.seed") if File.exists?(dir+"/.temp.html.seed")
@@ -66,16 +62,13 @@ module Mip
       argument "file", type: String, desc: "Path to markfown file.", required: true
 
       run do |opts, args|
-
-        print "#{args.file} !\n"
         if File.exists?(args.file)
-
-
           filename = File.basename(args.file)
           directory  =  File.dirname(args.file)
           dir_listing = false
           fast_server = FastHttpServer.new directory, dir_listing
-          server = HTTP::Server.new([HTTP::LogHandler.new, fast_server])
+          #server = HTTP::Server.new([HTTP::LogHandler.new, fast_server])
+          server = HTTP::Server.new([fast_server])
           address = server.bind_unused_port
 
           Mip::Markdown.gen_temp_html(args.file, address.port)
@@ -83,13 +76,12 @@ module Mip
           FSWatch.watch args.file do |event|
             if event.event_flag.to_s == "AttributeModified"
               Mip::Markdown.gen_temp_html(args.file, address.port)
-              p "reload file"
             end
           end
 
           Thread.new do
             view(filename, address.port)
-            Mip::Markdown.cleanup(args.file, opts.verbose)
+            Mip::Markdown.cleanup(args.file)
 
             #UGLY METHOD TO KILL SERVER
             GC.free(Pointer(Void).new(server.object_id))
@@ -100,7 +92,7 @@ module Mip
             puts "FAST-HTTP-SERVER STARTED ON PORT #{address.port}" + (directory == "./" ? "" : " at #{directory}")
           end
           server.listen
-          Mip::Markdown.cleanup(args.file, opts.verbose)
+          Mip::Markdown.cleanup(args.file)
 
         end
       end

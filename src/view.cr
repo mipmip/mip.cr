@@ -10,7 +10,6 @@ module View
         wv.navigate(url)
         JSON::Any.new("")
       rescue
-        p "??"
         JSON::Any.new("")
       end
 

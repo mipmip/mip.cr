@@ -35,7 +35,7 @@ poll(() => new Promise(() => {
   //reload("3")
   //location.reload();
   checkSeed(seedUrl)
-}), 2000)
+}), 500)
 
 
 /*! highlight.js v9.18.1 | BSD3 License | git.io/hljslicense */

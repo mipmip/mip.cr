@@ -1,7 +1,7 @@
 run:
 	make compthemes
 	rm -f .temp.html .temp.seed
-	crystal run src/mvi.cr -- -v ./README.md
+	crystal run src/mip.cr -- -v ./README.md
 
 all: test build
 
@@ -10,9 +10,9 @@ compthemes:
 
 build:
 	make compthemes
-	crystal build --release src/mvi.cr
+	crystal build --release src/mip.cr
 
 test:
 	crystal spec
 clean:
-	rm -f ./mvi
+	rm -f ./mip

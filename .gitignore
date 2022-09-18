@@ -3,7 +3,7 @@
 /bin/
 /.shards/
 *.dwarf
-mvi
+mip
 .temp.html
 node_modules
 .temp.seed

@@ -10,7 +10,7 @@ require "./serve"
 
 include View
 
-module Mvi
+module Mip
   VERSION = "0.2.0"
 
   class Markdown
@@ -59,9 +59,9 @@ module Mvi
   class Cli < Clim
 
     main do
-      desc "MVI. A simple markdown viewer."
-      usage "mvi [options] [FILE]"
-      version "Version #{Mvi::VERSION}"
+      desc "MiP. A fast markdown viewer."
+      usage "mip [options] [FILE]"
+      version "Version #{Mip::VERSION}"
       option "-v", "--verbose", type: Bool, desc: "Verbose."
       argument "file", type: String, desc: "Path to markfown file.", required: true
 
@@ -78,18 +78,18 @@ module Mvi
           server = HTTP::Server.new([HTTP::LogHandler.new, fast_server])
           address = server.bind_unused_port
 
-          Mvi::Markdown.gen_temp_html(args.file, address.port)
+          Mip::Markdown.gen_temp_html(args.file, address.port)
 
           FSWatch.watch args.file do |event|
             if event.event_flag.to_s == "AttributeModified"
-              Mvi::Markdown.gen_temp_html(args.file, address.port)
+              Mip::Markdown.gen_temp_html(args.file, address.port)
               p "reload file"
             end
           end
 
           Thread.new do
             view(filename, address.port)
-            Mvi::Markdown.cleanup(args.file, opts.verbose)
+            Mip::Markdown.cleanup(args.file, opts.verbose)
 
             #UGLY METHOD TO KILL SERVER
             GC.free(Pointer(Void).new(server.object_id))
@@ -100,13 +100,13 @@ module Mvi
             puts "FAST-HTTP-SERVER STARTED ON PORT #{address.port}" + (directory == "./" ? "" : " at #{directory}")
           end
           server.listen
-          Mvi::Markdown.cleanup(args.file, opts.verbose)
+          Mip::Markdown.cleanup(args.file, opts.verbose)
 
         end
       end
     end
   end
 
-  Mvi::Cli.start(ARGV)
+  Mip::Cli.start(ARGV)
 
 end

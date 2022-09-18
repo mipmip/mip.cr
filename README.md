@@ -1,8 +1,8 @@
-# Mvi or another name
+# Markdown Instant Preview
 
-
-Mvi is a fast and simple markdown viewer. Mvi uses a webview window to render
-the markdown. I wrote to this preview my markdown files which I write in vim.
+Markdown Instant Preview aka `mip` is a fast and simple markdown viewer. Mip uses
+a webview window to render the markdown. I wrote `mip` to this preview my markdown
+files which I write in vim.
 
 ![](./markdown.png)
 
@@ -15,24 +15,23 @@ the markdown. I wrote to this preview my markdown files which I write in vim.
 - built-in webserver
 - preview images
 - show/hide frontmatter
+- autoreload if file changes
 
 ## Todo
 
-- autoreload
 - respond to signals
 - don't crash at reload
 - refactor code
 - release workflow
 
-
 ## Usage
 
 ```
-  MVI. A simple markdown viewer.
+  mip. A simple markdown viewer.
 
   Usage:
 
-    mvi [options] [FILE]
+    mip [options] [FILE]
 
   Options:
 
@@ -76,19 +75,19 @@ make
 
 ```bash
 make build
-./mvi
+./mip
 ```
 
 ### Compile themes
 
 ```bash
 make build
-./mvi
+./mip
 ```
 
 ## Contributing
 
-1. Fork it (<https://github.com/mipmip/mvi/fork>)
+1. Fork it (<https://github.com/mipmip/mip/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

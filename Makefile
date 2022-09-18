@@ -16,3 +16,6 @@ test:
 	crystal spec
 clean:
 	rm -f ./mip
+
+release:
+	@echo "you should execute: crelease x.x.x"

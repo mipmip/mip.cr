@@ -9,6 +9,8 @@ compthemes:
 	yarn run inliner themesrc/theme1/template-src.html | tail -n +3 | head -n -1 > asset/theme1/template.html
 
 build:
+	yarn
+	shards
 	make compthemes
 	crystal build --release src/mip.cr
 

@@ -20,10 +20,6 @@ shards:
     git: https://github.com/icyleaf/markd.git
     version: 0.5.0
 
-  tempdir:
-    git: https://github.com/sam0x17/tempdir.git
-    version: 1.0.4
-
   webview:
     git: https://github.com/naqvis/webview.git
     version: 0.1.5

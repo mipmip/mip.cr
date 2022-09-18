@@ -13,6 +13,8 @@ buildInputs = [
   fswatch
   openssl
   crystal
+  nodejs
+  yarn
   shards
   webkitgtk
   cmake

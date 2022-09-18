@@ -1,7 +1,8 @@
-# Mvi
+# Mvi or another name
 
-Mvi is a simple markdown viewer. Mvi uses a webview window to render the
-markdown. I wrote to this preview my markdown files which I write in vim.
+
+Mvi is a fast and simple markdown viewer. Mvi uses a webview window to render
+the markdown. I wrote to this preview my markdown files which I write in vim.
 
 ![](./markdown.png)
 
@@ -19,11 +20,10 @@ markdown. I wrote to this preview my markdown files which I write in vim.
 
 - autoreload
 - respond to signals
-- don't crash at reloat
-- quit webview should quit application
+- don't crash at reload
 - refactor code
 - release workflow
-- configure port
+
 
 ## Usage
 
@@ -51,8 +51,37 @@ markdown. I wrote to this preview my markdown files which I write in vim.
 
 ## Development
 
+### Prerequisites
+
+- crystal 1.x
+- yarn
+- make
+- webkitgtk
+- fswatch
+
+### Setup Dev Environment
+
 ```bash
 shards install
+yarn
+```
+
+### Compile and run program
+
+```bash
+make
+```
+
+### Build optimized program
+
+```bash
+make build
+./mvi
+```
+
+### Compile themes
+
+```bash
 make build
 ./mvi
 ```

@@ -18,4 +18,5 @@ clean:
 	rm -f ./mip
 
 release:
+	@echo run crystal2nix and commit shards.nix
 	@echo "you should execute: crelease x.x.x"

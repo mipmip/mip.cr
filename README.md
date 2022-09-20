@@ -4,7 +4,7 @@ Markdown Instant Preview aka `mip` is a fast and simple markdown viewer. Mip use
 a webview window to render the markdown. I wrote `mip` to this preview my markdown
 files which I write in vim.
 
-[mip-video.webm](mip-video.webm)
+![mip-video.webm](mip-video.webm)
 
 ## Installation
 

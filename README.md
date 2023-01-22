@@ -1,5 +1,7 @@
 # Markdown Instant Preview - MiP
 
+**[There is an improved version written in Rust](https://github.com/mipmip/mip.rs)**
+
 Markdown Instant Preview aka `mip` is a fast and simple markdown viewer. Mip uses
 a webview window to render the markdown. I wrote `mip` to this preview my markdown
 files which I write in vim.
